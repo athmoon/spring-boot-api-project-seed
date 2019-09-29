@@ -16,7 +16,7 @@ import static com.company.project.core.ProjectConstant.*;
 /**
  * 代码生成器，根据数据表名称生成对应的Model、Mapper、Service、Controller简化开发。
  */
-public class CodeGenerator {
+public class CodeGenerator2 {
     //JDBC配置，请修改为你项目的实际配置
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/java";
     private static final String JDBC_USERNAME = "java";
@@ -143,21 +143,21 @@ public class CodeGenerator {
             data.put("modelNameLowerCamel", tableNameConvertLowerCamel(tableName));
             data.put("basePackage", BASE_PACKAGE);
 
-            File file = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_SERVICE + modelNameUpperCamel + "Service.java");
+            File file = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_SERVICE + modelNameUpperCamel + "Service2.java");
             if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
             }
-            cfg.getTemplate("service.ftl").process(data,
+            cfg.getTemplate("service2.ftl").process(data,
                     new FileWriter(file));
-            System.out.println(modelNameUpperCamel + "Service.java 生成成功");
+            System.out.println(modelNameUpperCamel + "Service2.java 生成成功");
 
-            File file1 = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_SERVICE_IMPL + modelNameUpperCamel + "ServiceImpl.java");
+            File file1 = new File(PROJECT_PATH + JAVA_PATH + PACKAGE_PATH_SERVICE_IMPL + modelNameUpperCamel + "Service2Impl.java");
             if (!file1.getParentFile().exists()) {
                 file1.getParentFile().mkdirs();
             }
-            cfg.getTemplate("service-impl.ftl").process(data,
+            cfg.getTemplate("service2-impl.ftl").process(data,
                     new FileWriter(file1));
-            System.out.println(modelNameUpperCamel + "ServiceImpl.java 生成成功");
+            System.out.println(modelNameUpperCamel + "Service2Impl.java 生成成功");
         } catch (Exception e) {
             throw new RuntimeException("生成Service失败", e);
         }
@@ -180,7 +180,7 @@ public class CodeGenerator {
             if (!file.getParentFile().exists()) {
                 file.getParentFile().mkdirs();
             }
-            cfg.getTemplate("controller-restful.ftl").process(data, new FileWriter(file));
+            cfg.getTemplate("controller-restful2.ftl").process(data, new FileWriter(file));
             //cfg.getTemplate("controller.ftl").process(data, new FileWriter(file));
 
             System.out.println(modelNameUpperCamel + "Controller.java 生成成功");
